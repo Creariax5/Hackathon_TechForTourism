@@ -1,19 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Bell, Menu, X, ArrowRight, Map, Wallet, Users } from 'lucide-react';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const styles = {
-    // Common styles
+    app: {
+      width: '100vw',
+      minHeight: '100vh',
+      margin: 0,
+      padding: 0,
+      overflow: 'hidden',
+    },
     container: {
+      width: '100%',
       maxWidth: '1200px',
       margin: '0 auto',
       padding: '0 20px',
+      boxSizing: 'border-box',
     },
     button: {
       backgroundColor: '#2E7D32',
@@ -27,81 +45,74 @@ const App = () => {
       alignItems: 'center',
       gap: '8px',
     },
-    
-    // Header styles
     header: {
       backgroundColor: '#1B5E20',
       padding: '1rem',
       color: 'white',
+      width: '100%',
     },
     nav: {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
+      maxWidth: '1200px',
+      margin: '0 auto',
+      padding: '0 20px',
     },
     logo: {
       fontSize: '24px',
       fontWeight: 'bold',
     },
     menuButton: {
-      display: 'none',
+      display: isMobile ? 'block' : 'none',
       background: 'none',
       border: 'none',
       color: 'white',
       cursor: 'pointer',
-      '@media (max-width: 768px)': {
-        display: 'block',
-      },
     },
     navLinks: {
-      display: 'flex',
-      gap: '2rem',
-      '@media (max-width: 768px)': {
-        display: isMenuOpen ? 'flex' : 'none',
-        flexDirection: 'column',
-        position: 'absolute',
-        top: '60px',
-        left: 0,
-        right: 0,
-        backgroundColor: '#1B5E20',
-        padding: '1rem',
-      },
+      display: isMobile ? (isMenuOpen ? 'flex' : 'none') : 'flex',
+      flexDirection: isMobile ? 'column' : 'row',
+      position: isMobile ? 'absolute' : 'static',
+      top: isMobile ? '60px' : 'auto',
+      left: isMobile ? 0 : 'auto',
+      right: isMobile ? 0 : 'auto',
+      backgroundColor: isMobile ? '#1B5E20' : 'transparent',
+      padding: isMobile ? '1rem' : 0,
+      gap: isMobile ? '1rem' : '2rem',
+      zIndex: 1000,
     },
     navLink: {
       color: 'white',
       textDecoration: 'none',
       fontSize: '16px',
     },
-    
-    // Hero section styles
     hero: {
       backgroundColor: '#F1F8E9',
       padding: '4rem 0',
       textAlign: 'center',
+      width: '100%',
     },
     heroTitle: {
-      fontSize: '48px',
+      fontSize: isMobile ? '36px' : '48px',
       color: '#1B5E20',
       marginBottom: '1rem',
     },
     heroSubtitle: {
-      fontSize: '20px',
+      fontSize: isMobile ? '18px' : '20px',
       color: '#333',
       marginBottom: '2rem',
     },
-    
-    // Features section styles
     features: {
       padding: '4rem 0',
       backgroundColor: 'white',
+      width: '100%',
     },
     featuresGrid: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
+      gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
       gap: '2rem',
-      '@media (max-width: 768px)': {
-        gridTemplateColumns: '1fr',
-      },
+      width: '100%',
     },
     featureCard: {
       padding: '2rem',
@@ -126,14 +137,13 @@ const App = () => {
       color: '#333',
       lineHeight: '1.6',
     },
-    
-    // How it works section styles
     howItWorks: {
       padding: '4rem 0',
       backgroundColor: '#F1F8E9',
+      width: '100%',
     },
     howItWorksTitle: {
-      fontSize: '36px',
+      fontSize: isMobile ? '30px' : '36px',
       color: '#1B5E20',
       textAlign: 'center',
       marginBottom: '3rem',
@@ -142,11 +152,13 @@ const App = () => {
       display: 'flex',
       flexDirection: 'column',
       gap: '2rem',
+      width: '100%',
     },
     step: {
       display: 'flex',
-      alignItems: 'center',
+      alignItems: isMobile ? 'flex-start' : 'center',
       gap: '2rem',
+      flexDirection: isMobile ? 'column' : 'row',
     },
     stepNumber: {
       backgroundColor: '#2E7D32',
@@ -172,20 +184,17 @@ const App = () => {
       color: '#333',
       lineHeight: '1.6',
     },
-    
-    // Footer styles
     footer: {
       backgroundColor: '#1B5E20',
       color: 'white',
       padding: '2rem 0',
+      width: '100%',
     },
     footerContent: {
       display: 'flex',
       justifyContent: 'space-between',
-      '@media (max-width: 768px)': {
-        flexDirection: 'column',
-        gap: '2rem',
-      },
+      flexDirection: isMobile ? 'column' : 'row',
+      gap: isMobile ? '2rem' : 0,
     },
     footerSection: {
       flex: 1,
@@ -206,8 +215,7 @@ const App = () => {
   };
 
   return (
-    <div>
-      {/* Header */}
+    <div style={styles.app}>
       <header style={styles.header}>
         <nav style={styles.nav}>
           <div style={styles.logo}>Éco-Cash</div>
@@ -222,7 +230,6 @@ const App = () => {
         </nav>
       </header>
 
-      {/* Hero Section */}
       <section style={styles.hero}>
         <div style={styles.container}>
           <h1 style={styles.heroTitle}>Cannes Éco-Cash</h1>
@@ -235,7 +242,6 @@ const App = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section id="features" style={styles.features}>
         <div style={styles.container}>
           <div style={styles.featuresGrid}>
@@ -270,7 +276,6 @@ const App = () => {
         </div>
       </section>
 
-      {/* How it Works Section */}
       <section id="how-it-works" style={styles.howItWorks}>
         <div style={styles.container}>
           <h2 style={styles.howItWorksTitle}>Comment ça marche</h2>
@@ -306,7 +311,6 @@ const App = () => {
         </div>
       </section>
 
-      {/* Footer */}
       <footer style={styles.footer}>
         <div style={styles.container}>
           <div style={styles.footerContent}>

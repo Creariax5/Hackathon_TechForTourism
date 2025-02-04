@@ -236,7 +236,7 @@ const Home = () => {
         <div style={styles.container}>
           <h1 style={styles.heroTitle}>Cannes Éco-Cash</h1>
           <p style={styles.heroSubtitle}>
-            La monnaie verte qui récompense vos choix écologiques à Cannes
+          Une monnaie verte qui transforme chaque visiteur en acteur du changement !
           </p>
           <button style={styles.button}>
             Commencer maintenant <ArrowRight size={20} />

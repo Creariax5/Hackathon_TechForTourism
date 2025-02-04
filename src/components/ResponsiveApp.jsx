@@ -5,6 +5,7 @@ const ResponsiveApp = () => {
   const [currentPage, setCurrentPage] = useState('landing');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('activities');
+  const [pointsColor, setPointsColor] = useState('#FFFFFF'); // White color
 
   const activities = [
     {
@@ -78,7 +79,14 @@ const ResponsiveApp = () => {
           </button>
           <div className="balance desktop-balance">
             <Euro size={20} />
-            <span>1250 points</span>
+            <span style={{ color: pointsColor }}>1250 points</span>
+            <input 
+              type="color" 
+              value={pointsColor}
+              onChange={(e) => setPointsColor(e.target.value)}
+              className="color-picker"
+              title="Change points color"
+            />
           </div>
         </div>
       </header>
@@ -87,7 +95,14 @@ const ResponsiveApp = () => {
         <div className="mobile-menu">
           <div className="balance">
             <Euro size={20} />
-            <span>1250 points</span>
+            <span style={{ color: pointsColor }}>1250 points</span>
+            <input 
+              type="color" 
+              value={pointsColor}
+              onChange={(e) => setPointsColor(e.target.value)}
+              className="color-picker"
+              title="Change points color"
+            />
           </div>
         </div>
       )}
@@ -246,6 +261,35 @@ const ResponsiveApp = () => {
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        color: #FFFFFF;
+      }
+      
+      .balance span {
+        color: #FFFFFF;
+      }
+
+      .color-picker {
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        background: none;
+      }
+
+      .color-picker::-webkit-color-swatch-wrapper {
+        padding: 0;
+      }
+
+      .color-picker::-webkit-color-swatch {
+        border: 2px solid white;
+        border-radius: 4px;
+      }
+
+      .color-picker::-moz-color-swatch {
+        border: 2px solid white;
+        border-radius: 4px;
       }
 
       .mobile-menu {

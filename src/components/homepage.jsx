@@ -107,7 +107,7 @@ const HomePage = () => {
     },
     searchBar: {
       position: 'relative',
-      width: '85%',
+      width: '100%',
     },
     searchInput: {
       width: '100%',

@@ -84,7 +84,7 @@ const styles = {
     color: 'white',
   },
   searchContainer: {
-    maxWidth: '100px',  // This is causing the overflow
+    maxWidth: '100%',
     margin: '1rem auto',
     padding: '0 1rem',
 },

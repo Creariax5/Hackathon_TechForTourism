@@ -73,7 +73,7 @@ const Home = () => {
     navLinks: {
       display: isMobile ? (isMenuOpen ? 'flex' : 'none') : 'flex',
       flexDirection: isMobile ? 'column' : 'row',
-      position: isMobile ? 'absolute' : 'static',
+      position: isMobile ? 'absolute' : 'absolute',
       top: isMobile ? '60px' : 'auto',
       left: isMobile ? 0 : 'auto',
       right: isMobile ? 0 : 'auto',

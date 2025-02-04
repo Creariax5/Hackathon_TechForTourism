@@ -10,14 +10,38 @@ const Home = () => {  // Renamed from Home to ResponsiveApp
   };
 
   const styles = {
+    wrapper: {
+      minHeight: '100vh',
+      backgroundColor: '#2E7D32',
+      position: 'absolute',
+      margin: 0,
+      padding: 0,
+      width: '100%',
+      top: -180,
+      left: 0,
+      right: 0
+    },
+    contentContainer: {
+      backgroundColor: 'white',
+      borderTopLeftRadius: '24px',
+      borderTopRightRadius: '24px',
+      marginTop: '230px',
+      position: 'absolute',
+      top: 180,
+      minHeight: 'calc(100vh - 180px)',
+      padding: '22px',
+    },
     container: {
       maxWidth: '800px',
       margin: '0 auto',
-      padding: '22px',
-      fontFamily: 'Inter, system-ui, sans-serif',
-      backgroundColor: '#fff',
+      position: 'relative',
+      top: '-80px',
     },
     header: {
+      position: 'absolute',
+      top: '280px',
+      left: '0',
+      right: '0',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -26,10 +50,10 @@ const Home = () => {  // Renamed from Home to ResponsiveApp
     balance: {
       fontSize: 'clamp(32px, 6vw, 40px)',
       fontWeight: 'bold',
-      color: '#2E7D32',
+      color: 'white',
       display: 'flex',
       alignItems: 'center',
-      gap: '8px',
+      gap: '4px',
     },
     cardContainer: {
       perspective: '1000px',
@@ -186,7 +210,7 @@ const Home = () => {  // Renamed from Home to ResponsiveApp
       
       @media (min-width: 768px) {
         body {
-          background-color: #f5f5f5;
+          background-color:rgb(245, 245, 245);
         }
       }
     `;
@@ -246,54 +270,58 @@ const Home = () => {  // Renamed from Home to ResponsiveApp
     return <HomePage />;  // Return the imported HomePage component
 
   return (
-    <div style={styles.container}>
+<div style={styles.wrapper}>
       <div style={styles.header}>
         <div style={styles.balance}>
           1,250 
-          <img src="/assets/eco_icon.png" alt="Eco-coin icon" style={{ width: '35%', height: 'auto' }}/>
+          <img src="/assets/eco_icon.png" alt="Eco-coin icon" style={{ width: '25%', height: 'auto' }}/>
         </div>
       </div>
+      
+      <div style={styles.contentContainer}>
+        <div style={styles.container}>
+          <div style={styles.cardContainer}>
+            <img src="/assets/card.png" alt="card" style={{ width: '100%', height: 'auto' }}/>
+          </div>
 
-      <div style={styles.cardContainer}>
-        <img src="/assets/card.png" alt="card" style={{ width: '100%', height: 'auto' }}/>
-      </div>
+          <button 
+            style={styles.button}
+            onClick={handleAccessApp}
+          >
+            Accéder à l'application
+            <ArrowRight size={20} />
+          </button>
 
-      <button 
-        style={styles.button}
-        onClick={handleAccessApp}
-      >
-        Accéder à l'application
-        <ArrowRight size={20} />
-      </button>
-
-      <div style={styles.transactionList}>
-        {transactions.map((group, groupIndex) => (
-          <div key={groupIndex} style={styles.transactionGroup}>
-            <div style={styles.transactionDate}>{group.date}</div>
-            {group.items.map((transaction, index) => (
-              <div key={index} style={styles.transaction}>
-                <div style={styles.transactionInfo}>
-                  <div style={{
-                    ...styles.transactionIcon,
-                    backgroundColor: transaction.iconBg
-                  }}>
-                    {transaction.icon}
+          <div style={styles.transactionList}>
+            {transactions.map((group, groupIndex) => (
+              <div key={groupIndex} style={styles.transactionGroup}>
+                <div style={styles.transactionDate}>{group.date}</div>
+                {group.items.map((transaction, index) => (
+                  <div key={index} style={styles.transaction}>
+                    <div style={styles.transactionInfo}>
+                      <div style={{
+                        ...styles.transactionIcon,
+                        backgroundColor: transaction.iconBg
+                      }}>
+                        {transaction.icon}
+                      </div>
+                      <div style={styles.transactionDetails}>
+                        <div style={styles.transactionTitle}>{transaction.title}</div>
+                        <div style={styles.transactionSubtitle}>{transaction.subtitle}</div>
+                      </div>
+                    </div>
+                    <div style={{
+                      ...styles.transactionAmount,
+                      ...(transaction.type === 'positive' ? styles.positive : styles.negative)
+                    }}>
+                      {transaction.amount}
+                    </div>
                   </div>
-                  <div style={styles.transactionDetails}>
-                    <div style={styles.transactionTitle}>{transaction.title}</div>
-                    <div style={styles.transactionSubtitle}>{transaction.subtitle}</div>
-                  </div>
-                </div>
-                <div style={{
-                  ...styles.transactionAmount,
-                  ...(transaction.type === 'positive' ? styles.positive : styles.negative)
-                }}>
-                  {transaction.amount}
-                </div>
+                ))}
               </div>
             ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

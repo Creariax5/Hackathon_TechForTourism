@@ -136,7 +136,7 @@ button:focus-visible {
 
 /* Card styles */
 .card {
-  background-color: rgb(255, 255, 255);
+  background-color: #0E7C33;
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -273,7 +273,6 @@ input:focus, select:focus, textarea:focus {
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
   :root {
-    color: rgba(255, 255, 255, 0.87);
     background-color: var(--background-dark);
   }
 

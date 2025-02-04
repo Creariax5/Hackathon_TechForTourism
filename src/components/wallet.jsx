@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
-import HomePage from './homepage';  // Import the actual HomePage component
+import HomePage from './homepage';
 
-const Home = () => {  // Renamed from Home to ResponsiveApp
+const Wallet = () => {
   const [showHome, setShowHome] = useState(false);
 
   const handleAccessApp = () => {
@@ -250,7 +250,7 @@ const Home = () => {  // Renamed from Home to ResponsiveApp
       <div style={styles.header}>
         <div style={styles.balance}>
           1,250 
-          <img src="/assets/eco_icon.png" alt="Eco-coin icon" style={{ width: '35%', height: 'auto' }}/>
+          <img src="public/assets/eco_icon.png" alt="Eco-coin icon" style={{ width: '35%', height: 'auto' }}/>
         </div>
       </div>
 
@@ -299,4 +299,4 @@ const Home = () => {  // Renamed from Home to ResponsiveApp
   );
 };
 
-export default Home;
+export default Wallet;

@@ -292,7 +292,6 @@ const Wallet = () => {
             <ArrowRight size={20} />
           </button>
 
-<<<<<<< HEAD:src/components/ResponsiveApp.jsx
           <div style={styles.transactionList}>
             {transactions.map((group, groupIndex) => (
               <div key={groupIndex} style={styles.transactionGroup}>
@@ -317,28 +316,7 @@ const Wallet = () => {
                     }}>
                       {transaction.amount}
                     </div>
-=======
-      <button 
-        style={styles.button}
-        onClick={handleAccessApp}
-      >
-        Accéder aux activités
-        <ArrowRight size={20} />
-      </button>
 
-      <div style={styles.transactionList}>
-        {transactions.map((group, groupIndex) => (
-          <div key={groupIndex} style={styles.transactionGroup}>
-            <div style={styles.transactionDate}>{group.date}</div>
-            {group.items.map((transaction, index) => (
-              <div key={index} style={styles.transaction}>
-                <div style={styles.transactionInfo}>
-                  <div style={{
-                    ...styles.transactionIcon,
-                    backgroundColor: transaction.iconBg
-                  }}>
-                    {transaction.icon}
->>>>>>> 34240ad2e269b0c6a81aac4639a09c9aa0a93507:src/components/wallet.jsx
                   </div>
                 ))}
               </div>

@@ -13,7 +13,7 @@ const Home = () => {  // Renamed from Home to ResponsiveApp
     container: {
       maxWidth: '800px',
       margin: '0 auto',
-      padding: '32px',
+      padding: '22px',
       fontFamily: 'Inter, system-ui, sans-serif',
       backgroundColor: '#fff',
     },
@@ -250,12 +250,12 @@ const Home = () => {  // Renamed from Home to ResponsiveApp
       <div style={styles.header}>
         <div style={styles.balance}>
           1,250 
-          <img src="src/assets/eco_icon.png" alt="Eco-coin icon" style={{ width: '35%', height: 'auto' }}/>
+          <img src="/assets/eco_icon.png" alt="Eco-coin icon" style={{ width: '35%', height: 'auto' }}/>
         </div>
       </div>
 
       <div style={styles.cardContainer}>
-        <img src="src/assets/card.png" alt="card" style={{ width: '100%', height: 'auto' }}/>
+        <img src="/assets/card.png" alt="card" style={{ width: '100%', height: 'auto' }}/>
       </div>
 
       <button 

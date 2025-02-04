@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { MapPin, Award, Euro, Search } from 'lucide-react';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { MapPin, Award, Euro, Search, Wallet as WalletIcon } from 'lucide-react';
+import Wallet from './wallet';
 
 const HomePage = () => {
   const [activeTab, setActiveTab] = useState('activities');
+  const [showWallet, setShowWallet] = useState(false);
   
   const activities = [
     {
@@ -69,14 +70,33 @@ const HomePage = () => {
     headerContent: {
       maxWidth: '1200px',
       margin: '0 auto',
+      display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
+    },
+    headerLeft: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '2rem',
     },
     logo: {
       fontSize: '1.5rem',
       fontWeight: 'bold',
     },
+    walletButton: {
+      backgroundColor: 'transparent',
+      border: '1px solid rgba(255, 255, 255, 0.2)',
+      borderRadius: '8px',
+      padding: '0.5rem 1rem',
+      color: 'white',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      cursor: 'pointer',
+      transition: 'all 0.2s ease',
+    },
     balance: {
+      display: 'flex',
       alignItems: 'center',
       gap: '0.5rem',
     },
@@ -139,6 +159,7 @@ const HomePage = () => {
       boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
     },
     cardHeader: {
+      display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'flex-start',
     },
@@ -153,12 +174,14 @@ const HomePage = () => {
       marginBottom: '0.5rem',
     },
     location: {
+      display: 'flex',
       alignItems: 'center',
       gap: '0.25rem',
       fontSize: '0.875rem',
       color: '#666',
     },
     points: {
+      display: 'flex',
       alignItems: 'center',
       gap: '0.25rem',
       backgroundColor: '#E8F5E9',
@@ -178,15 +201,28 @@ const HomePage = () => {
     }
   };
 
+  // If showWallet is true, render the Wallet component
+  if (showWallet) {
+    return <Wallet />;
+  }
+
   return (
     <div style={styles.container}>
       <header style={styles.header}>
         <div style={styles.headerContent}>
-          <h1 style={styles.logo}>Cannes Éco-Cash</h1>
-          <div style={styles.balance}>
-            <Award size={20} />
-            <span>1250 Eco-Coins</span>
+          <div style={styles.headerLeft}>
+            <h1 style={styles.logo}>Cannes Éco-Cash</h1>
+            <div style={styles.balance}>
+              <Award size={20} />
+              <span>1250 Eco-Coins</span>
+            </div>
           </div>
+          <button 
+            style={styles.walletButton}
+            onClick={() => setShowWallet(true)}
+          >
+            <WalletIcon size={20} />
+          </button>
         </div>
       </header>
 

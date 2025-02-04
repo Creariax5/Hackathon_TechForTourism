@@ -69,7 +69,6 @@ const HomePage = () => {
     headerContent: {
       maxWidth: '1200px',
       margin: '0 auto',
-      display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
     },
@@ -78,7 +77,6 @@ const HomePage = () => {
       fontWeight: 'bold',
     },
     balance: {
-      display: 'flex',
       alignItems: 'center',
       gap: '0.5rem',
     },
@@ -89,7 +87,7 @@ const HomePage = () => {
     },
     searchBar: {
       position: 'relative',
-      width: '100%',
+      width: '85%',
     },
     searchInput: {
       width: '100%',
@@ -141,7 +139,6 @@ const HomePage = () => {
       boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
     },
     cardHeader: {
-      display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'flex-start',
     },
@@ -156,14 +153,12 @@ const HomePage = () => {
       marginBottom: '0.5rem',
     },
     location: {
-      display: 'flex',
       alignItems: 'center',
       gap: '0.25rem',
       fontSize: '0.875rem',
       color: '#666',
     },
     points: {
-      display: 'flex',
       alignItems: 'center',
       gap: '0.25rem',
       backgroundColor: '#E8F5E9',

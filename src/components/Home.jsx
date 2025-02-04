@@ -54,7 +54,6 @@ const Home = () => {
       width: '100%',
     },
     nav: {
-      display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
       maxWidth: '1200px',
@@ -151,13 +150,11 @@ const Home = () => {
       marginBottom: '3rem',
     },
     steps: {
-      display: 'flex',
       flexDirection: 'column',
       gap: '2rem',
       width: '100%',
     },
     step: {
-      display: 'flex',
       alignItems: isMobile ? 'flex-start' : 'center',
       gap: '2rem',
       flexDirection: isMobile ? 'column' : 'row',
@@ -168,7 +165,6 @@ const Home = () => {
       width: '40px',
       height: '40px',
       borderRadius: '50%',
-      display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       fontSize: '20px',
@@ -193,7 +189,6 @@ const Home = () => {
       width: '100%',
     },
     footerContent: {
-      display: 'flex',
       justifyContent: 'space-between',
       flexDirection: isMobile ? 'column' : 'row',
       gap: isMobile ? '2rem' : 0,
@@ -206,7 +201,6 @@ const Home = () => {
       marginBottom: '1rem',
     },
     footerLinks: {
-      display: 'flex',
       flexDirection: 'column',
       gap: '0.5rem',
     },

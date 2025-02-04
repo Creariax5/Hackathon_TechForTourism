@@ -12,7 +12,6 @@ const styles = {
   landing: {
     minHeight: '100vh',
     backgroundColor: '#f5f5f5',
-    display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
@@ -38,7 +37,6 @@ const styles = {
     borderRadius: '8px',
     fontSize: '1.1rem',
     cursor: 'pointer',
-    display: 'inline-flex',
     alignItems: 'center',
     gap: '0.5rem',
     transition: 'background-color 0.2s',
@@ -60,7 +58,6 @@ const styles = {
     maxWidth: '1200px',
     margin: '0 auto',
     padding: '1rem',
-    display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -75,13 +72,8 @@ const styles = {
     color: 'white',
     cursor: 'pointer',
     padding: '0.5rem',
-    display: 'none', // Hidden by default, shown on mobile
-    '@media (max-width: 768px)': {
-      display: 'block',
-    },
   },
   balance: {
-    display: 'flex',
     alignItems: 'center',
     gap: '0.5rem',
   },
@@ -92,10 +84,10 @@ const styles = {
     color: 'white',
   },
   searchContainer: {
-    maxWidth: '1200px',
+    maxWidth: '100px',  // This is causing the overflow
     margin: '1rem auto',
     padding: '0 1rem',
-  },
+},
   searchWrapper: {
     position: 'relative',
     width: '100%',
@@ -120,7 +112,6 @@ const styles = {
     margin: '0 auto',
     padding: '0 1rem',
     borderBottom: '1px solid #e5e5e5',
-    display: 'flex',
     gap: '1rem',
   },
   tab: {
@@ -150,7 +141,6 @@ const styles = {
     padding: '0 1rem',
   },
   grid: {
-    display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
     gap: '1rem',
     '@media (max-width: 640px)': {
@@ -164,7 +154,6 @@ const styles = {
     boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
   },
   cardHeader: {
-    display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
     marginBottom: '1rem',
@@ -183,14 +172,12 @@ const styles = {
     marginBottom: '0.5rem',
   },
   location: {
-    display: 'flex',
     alignItems: 'center',
     gap: '0.25rem',
     fontSize: '0.875rem',
     color: '#666',
   },
   points: {
-    display: 'flex',
     alignItems: 'center',
     gap: '0.25rem',
     backgroundColor: '#E8F5E9',
@@ -200,7 +187,6 @@ const styles = {
     fontSize: '0.875rem',
   },
   tag: {
-    display: 'inline-block',
     backgroundColor: '#f5f5f5',
     color: '#666',
     padding: '0.25rem 0.5rem',
@@ -211,26 +197,6 @@ const styles = {
 
 // Add media queries
 const mediaQueries = `
-  @media (max-width: 768px) {
-    .desktop-balance {
-      display: none;
-    }
-    
-    .menu-button {
-      display: block;
-    }
-  }
-
-  @media (min-width: 769px) {
-    .mobile-menu {
-      display: none;
-    }
-    
-    .menu-button {
-      display: none;
-    }
-  }
-
   @media (max-width: 640px) {
     .grid {
       grid-template-columns: 1fr;

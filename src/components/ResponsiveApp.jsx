@@ -11,7 +11,6 @@ const Home = () => {  // Renamed from Home to ResponsiveApp
 
   const styles = {
     container: {
-      width: '100%',
       maxWidth: '800px',
       margin: '0 auto',
       padding: '32px',
@@ -185,7 +184,7 @@ const Home = () => {  // Renamed from Home to ResponsiveApp
         }
       }
       
-      @media (min-width: 100px) {
+      @media (min-width: 768px) {
         body {
           background-color: #f5f5f5;
         }

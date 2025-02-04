@@ -93,16 +93,16 @@ const DownloadApp = () => {
           {/* Image Container */}
           <div style={styles.imageContainer}>
             <img 
-              src="public/assets/ecocash-logo.png"
+              src="/assets/ecocash-logo.png"
               alt="App preview"
               style={styles.image}
             />
           </div>
           
           {/* Title */}
-          <h1 style={styles.title}>
-            Cannes Éco-Cash
-          </h1>
+          <h2 style={styles.title}>
+            Cannes Eco-Wallet
+          </h2>
           
           {/* Description */}
           <p style={styles.description}>

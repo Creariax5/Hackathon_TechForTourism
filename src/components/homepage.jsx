@@ -211,7 +211,12 @@ const HomePage = () => {
       <header style={styles.header}>
         <div style={styles.headerContent}>
           <div style={styles.headerLeft}>
-            <h1 style={styles.logo}>Cannes Éco-Cash</h1>
+            <h2 style={styles.logo}>
+            <br/>
+                Cannes 
+            <br/>
+                Eco-Wallet
+            </h2>
             <div style={styles.balance}>
               <Award size={20} />
               <span>1250 Eco-Coins</span>

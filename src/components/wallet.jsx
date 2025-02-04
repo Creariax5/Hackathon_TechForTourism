@@ -250,7 +250,7 @@ const Wallet = () => {
       <div style={styles.header}>
         <div style={styles.balance}>
           1,250 
-          <img src="public/assets/eco_icon.png" alt="Eco-coin icon" style={{ width: '35%', height: 'auto' }}/>
+          <img src="/assets/eco_icon.png" alt="Eco-coin icon" style={{ width: '35%', height: 'auto' }}/>
         </div>
       </div>
 

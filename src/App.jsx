@@ -84,7 +84,7 @@ const styles = {
     color: 'white',
   },
   searchContainer: {
-    maxWidth: '100px',  // This is causing the overflow
+    maxWidth: '100%',
     margin: '1rem auto',
     padding: '0 1rem',
 },
@@ -381,6 +381,16 @@ const HomePage = () => {
               </div>
             ))
           )}
+        </div>
+        <div className="search-container">
+          <div className="search-wrapper">
+            <input
+              type="text"
+              placeholder="Rechercher des activités, défis..."
+              className="search-input"
+            />
+            <Search className="search-icon" size={20} />
+          </div>
         </div>
       </main>
     </div>

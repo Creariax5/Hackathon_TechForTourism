@@ -72,7 +72,7 @@ const ResponsiveApp = () => {
     <div className="home">
       <header>
         <div className="header-content">
-          <h1>Cannes Éco-Cash</h1>
+          <h2>Cannes Éco-Cash</h2>
           <button className="menu-button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

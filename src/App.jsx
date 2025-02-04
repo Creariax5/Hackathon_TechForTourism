@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Award, Euro, Search, ArrowRight, Menu, X } from 'lucide-react';
-import ResponsiveApp from './components/ResponsiveApp';
+import DownloadApp from './components/download.jsx';
 
 const styles = {
   // Global styles
@@ -209,7 +209,7 @@ styleSheet.innerText = mediaQueries;
 document.head.appendChild(styleSheet);
 
 const App = () => {
-  return <ResponsiveApp />;
+  return <DownloadApp />;
 };
 
 export default App;

@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import { Bell, Menu, X, ArrowRight, Map, Wallet, Users } from 'lucide-react';
 

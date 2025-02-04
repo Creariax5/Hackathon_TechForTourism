@@ -50,7 +50,6 @@ body {
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
-  color: var(--primary-dark);
   margin-bottom: 1rem;
 }
 
@@ -61,6 +60,7 @@ h1 {
 
 h2 {
   font-size: 2.4em;
+  color: var(--primary-light);
 }
 
 h3 {
@@ -286,7 +286,7 @@ input:focus, select:focus, textarea:focus {
 
   input, select, textarea {
     background-color: #ffffff;
-    color: white;
+    color: rgb(0, 0, 0);
     border-color: #444;
   }
 }

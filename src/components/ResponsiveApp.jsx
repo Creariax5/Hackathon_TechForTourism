@@ -185,7 +185,7 @@ const Home = () => {  // Renamed from Home to ResponsiveApp
         }
       }
       
-      @media (min-width: 768px) {
+      @media (min-width: 100px) {
         body {
           background-color: #f5f5f5;
         }
@@ -251,7 +251,7 @@ const Home = () => {  // Renamed from Home to ResponsiveApp
       <div style={styles.header}>
         <div style={styles.balance}>
           1,250 
-          <img src="src/assets/eco_icon.png" alt="Eco-coin icon" />
+          <img src="src/assets/eco_icon.png" alt="Eco-coin icon" style={{ width: '35%', height: 'auto' }}/>
         </div>
       </div>
 

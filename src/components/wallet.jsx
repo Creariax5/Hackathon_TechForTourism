@@ -262,7 +262,7 @@ const Wallet = () => {
         style={styles.button}
         onClick={handleAccessApp}
       >
-        Accéder à l'application
+        Accéder aux activités
         <ArrowRight size={20} />
       </button>
 

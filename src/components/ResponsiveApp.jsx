@@ -77,8 +77,8 @@ const ResponsiveApp = () => {
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
           <div className="balance desktop-balance">
-            <Euro size={20} />
-            <span>1250 points</span>
+            <Award size={20} />
+            <span>1250 Eco-Coins</span>
           </div>
         </div>
       </header>
@@ -86,8 +86,8 @@ const ResponsiveApp = () => {
       {isMenuOpen && (
         <div className="mobile-menu">
           <div className="balance">
-            <Euro size={20} />
-            <span>1250 points</span>
+            <Award size={20} />
+            <span>1250 Eco-Coins</span>
           </div>
         </div>
       )}

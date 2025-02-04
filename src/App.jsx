@@ -331,8 +331,8 @@ const HomePage = () => {
           </button>
           
           <div className="desktop-balance" style={styles.balance}>
-            <Euro size={20} />
-            <span>1250 points</span>
+            <Award size={20} />
+            <span>1250 Eco-Coins</span>
           </div>
         </div>
       </header>
@@ -340,8 +340,8 @@ const HomePage = () => {
       {isMenuOpen && (
         <div className="mobile-menu" style={styles.mobileMenu}>
           <div style={styles.balance}>
-            <Euro size={20} />
-            <span>1250 points</span>
+            <Award size={20} />
+            <span>1250 Eco-Coins</span>
           </div>
         </div>
       )}
@@ -393,7 +393,7 @@ const HomePage = () => {
                     </div>
                   </div>
                   <div style={styles.points}>
-                    <Euro size={16} />
+                    <Award size={16} />
                     {activity.ecoPoints}
                   </div>
                 </div>

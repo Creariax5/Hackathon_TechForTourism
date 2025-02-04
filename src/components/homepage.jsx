@@ -189,8 +189,8 @@ const HomePage = () => {
         <div style={styles.headerContent}>
           <h1 style={styles.logo}>Cannes Éco-Cash</h1>
           <div style={styles.balance}>
-            <Euro size={20} />
-            <span>1250 points</span>
+            <Award size={20} />
+            <span>1250 Eco-Coins</span>
           </div>
         </div>
       </header>
@@ -242,7 +242,7 @@ const HomePage = () => {
                     </div>
                   </div>
                   <div style={styles.points}>
-                    <Euro size={16} />
+                    <Award size={16} />
                     {activity.ecoPoints}
                   </div>
                 </div>

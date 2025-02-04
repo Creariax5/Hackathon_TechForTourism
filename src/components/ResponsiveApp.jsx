@@ -4,7 +4,7 @@ import { MapPin, Award, Euro, Search, ArrowRight, Menu, X } from 'lucide-react';
 const ResponsiveApp = () => {
   const [currentPage, setCurrentPage] = useState('landing');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('activities'); // White color
+  const [activeTab, setActiveTab] = useState('activities');
 
   const activities = [
     {
@@ -133,7 +133,7 @@ const ResponsiveApp = () => {
                       </div>
                     </div>
                     <div className="points">
-                      <Euro size={16} />
+                      <Award size={16} />
                       {activity.ecoPoints}
                     </div>
                   </div>

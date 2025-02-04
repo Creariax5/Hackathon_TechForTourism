@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Award, Euro, Search } from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
   const [activeTab, setActiveTab] = useState('activities');
@@ -34,8 +35,8 @@ const HomePage = () => {
   const challenges = [
     {
       id: 1,
-      name: "Zéro déchet à la plage",
-      description: "Ramassez des déchets sur la plage pendant 30 minutes",
+      name: "Marcheur",
+      description: "Marcher 2km",
       reward: 150,
       difficulty: "Facile"
     },

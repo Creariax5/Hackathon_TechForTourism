@@ -98,7 +98,6 @@ const styles = {
   },
   searchWrapper: {
     position: 'relative',
-    width: '100%',
   },
   searchInput: {
     width: '100%',
@@ -139,7 +138,6 @@ const styles = {
       position: 'absolute',
       bottom: '-1px',
       left: 0,
-      width: '100%',
       height: '2px',
       backgroundColor: '#2E7D32',
     },

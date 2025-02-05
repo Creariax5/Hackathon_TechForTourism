@@ -240,7 +240,7 @@ const Wallet = () => {
       items: [
         {
           icon: "🍽️",
-          title: "Réduction utilisé",
+          title: "Réduction utilisée",
           subtitle: "Restaurant",
           amount: "- 1250",
           type: "negative",

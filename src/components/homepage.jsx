@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { MapPin, Award, Euro, Search, Wallet as WalletIcon } from 'lucide-react';
+import { MapPin, Award, Euro, Search, Wallet as WalletIcon, Map } from 'lucide-react';
 import Wallet from './wallet';
 
 const HomePage = () => {
   const [activeTab, setActiveTab] = useState('activities');
   const [showWallet, setShowWallet] = useState(false);
+  const [showMapModal, setShowMapModal] = useState(false);
   
   const activities = [
     {
@@ -198,10 +199,44 @@ const HomePage = () => {
       borderRadius: '0.25rem',
       fontSize: '0.875rem',
       marginTop: '0.5rem',
-    }
+    },
+    modal: {
+      display: showMapModal ? 'block' : 'none',
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      zIndex: 1000,
+    },
+    modalContent: {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      backgroundColor: 'white',
+      padding: '20px',
+      borderRadius: '8px',
+      width: '90%',
+      maxWidth: '800px',
+      maxHeight: '90vh',
+      overflow: 'auto',
+    },
+    modalHeader: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: '1rem',
+    },
+    closeButton: {
+      background: 'none',
+      border: 'none',
+      fontSize: '1.5rem',
+      cursor: 'pointer',
+    },
   };
 
-  // If showWallet is true, render the Wallet component
   if (showWallet) {
     return <Wallet />;
   }
@@ -212,10 +247,10 @@ const HomePage = () => {
         <div style={styles.headerContent}>
           <div style={styles.headerLeft}>
             <h2 style={styles.logo}>
-            <br/>
-                Cannes 
-            <br/>
-                Eco-Wallet
+              <br/>
+              Cannes 
+              <br/>
+              Eco-Wallet
             </h2>
             <div style={styles.balance}>
               <Award size={20} />
@@ -261,6 +296,38 @@ const HomePage = () => {
         >
           Défis
         </button>
+        <button
+          onClick={() => setShowMapModal(true)}
+          style={{
+            ...styles.tabButton,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+          }}
+        >
+          <Map size={16} />
+          Carte
+        </button>
+      </div>
+
+      {/* Map Modal */}
+      <div style={styles.modal}>
+        <div style={styles.modalContent}>
+          <div style={styles.modalHeader}>
+            <h4>Carte des Activités</h4>
+            <button 
+              style={styles.closeButton}
+              onClick={() => setShowMapModal(false)}
+            >
+              ×
+            </button>
+          </div>
+          <img 
+            src="/assets/map.png" 
+            alt="Carte des activités"
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </div>
       </div>
 
       <main style={styles.content}>

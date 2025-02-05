@@ -307,7 +307,7 @@ const Wallet = () => {
 
             <button 
               style={styles.button}
-              onClick={handleAccessApp}
+              // onClick={handleAccessApp}
             >
               Ajouter au portefeuille
               <ArrowRight size={20} />

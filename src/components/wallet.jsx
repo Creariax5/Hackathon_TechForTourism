@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ArrowLeft } from 'lucide-react';
 import HomePage from './homepage';
 
 const Wallet = () => {
@@ -10,6 +10,19 @@ const Wallet = () => {
   };
 
   const styles = {
+    backButton: {
+      position: 'fixed',
+      top: '50px',
+      left: '20px',
+      background: 'transparent',
+      border: 'none',
+      padding: '8px',
+      cursor: 'pointer',
+      zIndex: 1000,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
     wrapper: {
       minHeight: '100vh',
       backgroundColor: '#2E7D32',
@@ -270,61 +283,68 @@ const Wallet = () => {
     return <HomePage />;  // Return the imported HomePage component
 
   return (
-<div style={styles.wrapper}>
-      <div style={styles.header}>
-        <div style={styles.balance}>
-          1,250 
-          <img src="/assets/eco_icon.png" alt="Eco-coin icon" style={{ width: '25%', height: 'auto' }}/>
-        </div>
-      </div>
-      
-      <div style={styles.contentContainer}>
-        <div style={styles.container}>
-          <div style={styles.cardContainer}>
-            <img src="/assets/card.png" alt="card" style={{ width: '100%', height: 'auto' }}/>
+
+    <div style={styles.wrapper}>
+        <button 
+          onClick={() => setShowHome(true)}
+          style={styles.backButton}
+        >
+          <ArrowLeft size={28} color="white" />
+        </button>
+
+        <div style={styles.header}>
+          <div style={styles.balance}>
+            1,250 
+            <img src="/assets/eco_icon.png" alt="Eco-coin icon" style={{ width: '25%', height: 'auto' }}/>
           </div>
+        </div>
+        
+        <div style={styles.contentContainer}>
+          <div style={styles.container}>
+            <div style={styles.cardContainer}>
+              <img src="/assets/card.png" alt="card" style={{ width: '100%', height: 'auto' }}/>
+            </div>
 
-          <button 
-            style={styles.button}
-            onClick={handleAccessApp}
-          >
-            Accéder à l'application
-            <ArrowRight size={20} />
-          </button>
+            <button 
+              style={styles.button}
+              onClick={handleAccessApp}
+            >
+              Ajouter au portefeuille
+              <ArrowRight size={20} />
+            </button>
 
-          <div style={styles.transactionList}>
-            {transactions.map((group, groupIndex) => (
-              <div key={groupIndex} style={styles.transactionGroup}>
-                <div style={styles.transactionDate}>{group.date}</div>
-                {group.items.map((transaction, index) => (
-                  <div key={index} style={styles.transaction}>
-                    <div style={styles.transactionInfo}>
+            <div style={styles.transactionList}>
+              {transactions.map((group, groupIndex) => (
+                <div key={groupIndex} style={styles.transactionGroup}>
+                  <div style={styles.transactionDate}>{group.date}</div>
+                  {group.items.map((transaction, index) => (
+                    <div key={index} style={styles.transaction}>
+                      <div style={styles.transactionInfo}>
+                        <div style={{
+                          ...styles.transactionIcon,
+                          backgroundColor: transaction.iconBg
+                        }}>
+                          {transaction.icon}
+                        </div>
+                        <div style={styles.transactionDetails}>
+                          <div style={styles.transactionTitle}>{transaction.title}</div>
+                          <div style={styles.transactionSubtitle}>{transaction.subtitle}</div>
+                        </div>
+                      </div>
                       <div style={{
-                        ...styles.transactionIcon,
-                        backgroundColor: transaction.iconBg
+                        ...styles.transactionAmount,
+                        ...(transaction.type === 'positive' ? styles.positive : styles.negative)
                       }}>
-                        {transaction.icon}
-                      </div>
-                      <div style={styles.transactionDetails}>
-                        <div style={styles.transactionTitle}>{transaction.title}</div>
-                        <div style={styles.transactionSubtitle}>{transaction.subtitle}</div>
+                        {transaction.amount}
                       </div>
                     </div>
-                    <div style={{
-                      ...styles.transactionAmount,
-                      ...(transaction.type === 'positive' ? styles.positive : styles.negative)
-                    }}>
-                      {transaction.amount}
-                    </div>
-
-                  </div>
-                ))}
-              </div>
-            ))}
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

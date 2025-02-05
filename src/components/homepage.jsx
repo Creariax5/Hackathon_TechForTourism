@@ -38,7 +38,7 @@ const HomePage = () => {
       id: 1,
       name: "Marcheur",
       description: "Marcher 2km",
-      reward: 150,
+      reward: 15,
       difficulty: "Facile"
     },
     {
